@@ -1,19 +1,15 @@
-﻿using Generics_5.Model;
+﻿using System;
+using Generics_5.Model;
 
 namespace Generics_5.Validator
 {
     internal class ContactValidator : IValidator<Contact>
     {
         private const string ErrorMessage = "Contact with id = {0} have incorrect field \"Value\" = {1}";
-        public bool Validate(Contact contact, out string errorMessage)
+
+        public void Validate(Contact contact)
         {
-            errorMessage = null;
-
-            var validationResult = contact.Value != null;
-
-            if (!validationResult) errorMessage = string.Format(ErrorMessage, contact.Id, contact.Value ?? "null");
-
-            return validationResult;
+            if (contact.Value == null) throw new ArgumentException(string.Format(ErrorMessage, contact.Id, contact.Value ?? "null"));
         }
     }
 }

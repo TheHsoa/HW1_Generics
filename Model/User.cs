@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Generics_5.Validator;
 
 namespace Generics_5.Model
 {
-    internal class User : IEntity
+    internal class User : IEntity, IValidatable
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -12,6 +13,11 @@ namespace Generics_5.Model
         public User()
         {
             Contacts = new HashSet<Contact>();
+        }
+
+        public void Validate()
+        {
+            new UserValidator().Validate(this);
         }
     }
 }

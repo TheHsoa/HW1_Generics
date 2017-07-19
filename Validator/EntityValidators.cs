@@ -12,7 +12,7 @@ namespace Generics_5.Validator
         {
             if (contact.Value == null)
             {
-                throw new ArgumentException(string.Format(Resources.NullPropertyException, nameof(contact.Value)), typeof(Contact).FullName);
+                throw new ArgumentException(string.Format(Resources.NullPropertyException, nameof(contact.Value)), typeof(Contact).Name);
             }
         }
 
@@ -20,7 +20,7 @@ namespace Generics_5.Validator
         {
             if (user.Name == null)
             {
-                throw new ArgumentException(string.Format(Resources.NullPropertyException, nameof(user.Name)), typeof(Contact).FullName);
+                throw new ArgumentException(string.Format(Resources.NullPropertyException, nameof(user.Name)), typeof(User).Name);
             }
         }
 
@@ -28,7 +28,7 @@ namespace Generics_5.Validator
         {
             if (entity == null)
             {
-                throw new ArgumentNullException(typeof(TEntity).FullName);
+                throw new ArgumentNullException(typeof(TEntity).Name);
             }
         }
     }

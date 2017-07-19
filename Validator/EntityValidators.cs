@@ -18,6 +18,7 @@ namespace Generics_5.Validator
 
         public static void ValidateUser(this User user)
         {
+
             if (user.Name == null)
             {
                 throw new ArgumentException(string.Format(Resources.NullPropertyException, "Name"), user.GetType().Name);

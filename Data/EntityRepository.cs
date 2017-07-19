@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Generics_5.Model;
+using Generics_5.Validator;
 
 namespace Generics_5.Data
 {
@@ -10,7 +11,9 @@ namespace Generics_5.Data
 
         public void Add(TEntity entity)
         {
+            entity.ValidateEntityNotNull();
             entity.Validate();
+
             _storage.Add(entity);
         }
 

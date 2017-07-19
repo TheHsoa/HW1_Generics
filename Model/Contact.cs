@@ -9,7 +9,7 @@ namespace Generics_5.Model
 
         public void Validate()
         {
-            new ContactValidator().Validate(this);
+            this.ValidateContact();
         }
 
         public override string ToString()

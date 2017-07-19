@@ -8,7 +8,7 @@ namespace Generics_5
     {
         private static void Main()
         {
-            var user = new User { Id = 1, Name = "Name" };
+            var user = new User { Id = 1, Name = null };
 
             var phone = new Phone { Id = 1, PhoneCode = "123", Value = "123124" };
 

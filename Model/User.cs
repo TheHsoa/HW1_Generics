@@ -17,7 +17,7 @@ namespace Generics_5.Model
 
         public void Validate()
         {
-            new UserValidator().Validate(this);
+            this.ValidateUser();
         }
     }
 }

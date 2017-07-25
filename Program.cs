@@ -4,9 +4,9 @@ using Generics_5.Model;
 
 namespace Generics_5
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var user = new User { Id = 1, Name = "Name" };
 
@@ -21,7 +21,7 @@ namespace Generics_5
             Console.WriteLine(contactRepository.GetById(1));
         }
 
-        private static IRepository<TEntity> GetRepository<TEntity>() where TEntity : IEntity
+        private static IRepository<TEntity> GetRepository<TEntity>() where TEntity : IEntity, IValidatable
         {
             return new EntityRepository<TEntity>();
         }

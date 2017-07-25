@@ -1,21 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Generics_5.Model;
+using Generics_5.Validator;
 
 namespace Generics_5.Data
 {
-    internal class EntityRepository<TEntity> : IRepository<TEntity> where TEntity : IEntity
+    internal class EntityRepository<TEntity> : IRepository<TEntity> where TEntity : IEntity, IValidatable
     {
         private readonly List<TEntity> _storage = new List<TEntity>();
 
-        public void Add(TEntity contact)
+        public void Add(TEntity entity)
         {
-            _storage.Add(contact);
+            entity.ValidateEntityNotNull();
+            entity.Validate();
+
+            _storage.Add(entity);
         }
 
-        public void Remove(TEntity contact)
+        public void Remove(TEntity entity)
         {
-            _storage.Remove(contact);
+            _storage.Remove(entity);
         }
 
         public TEntity GetById(long id)

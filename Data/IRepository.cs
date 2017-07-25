@@ -4,9 +4,9 @@ namespace Generics_5.Data
 {
     internal interface IRepository<TEntity> where TEntity : IEntity
     {
-        void Add(TEntity contact);
+        void Add(TEntity entity);
 
-        void Remove(TEntity contact);
+        void Remove(TEntity entity);
 
         TEntity GetById(long id);
 
